@@ -9,18 +9,18 @@ const fetchAllMessages = createAsyncThunk(
 	}
 );
 
-const initialState = {
-  entities: [],
-  loading: 'idle',
-} as MessagesState
+const initialState = [];
 
 
 const messagesSlice = createSlice({
 	name: 'messages',
 	initialState,
+	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(fetchAllMessages.fulfilled, (state, action) => {
-			state.entities.push(action.payload)
+			state.push(action.payload)
 		})
 	}
 });
+
+export default messagesSlice.reducer

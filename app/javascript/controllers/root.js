@@ -2,7 +2,7 @@ import React from 'react'
 
 function RootController() {
 	return (
-		<div>Home</div>
+		<div>Click me</div>
 	);
 }
 

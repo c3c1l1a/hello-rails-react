@@ -1,8 +1,11 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchAllMessages } from '../redux/greetings';
 
 function RootController() {
+	const dispatch = useDispatch()
 	const generateMessage = () => {
-		console.log('clicked')
+		dispatch(fetchAllMessages())
 	}
 
 	return (

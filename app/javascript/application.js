@@ -3,7 +3,10 @@
 //
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RootController from "./controllers/root"
+import { Provider } from 'react-redux';
+import RootController from "./controllers/root";
+import store from './redux/configureStore';
+
 
 import {
   BrowserRouter as Router,
@@ -13,11 +16,13 @@ import {
 
 function App() {
 	return (
-	  <Router>
-	  	<Routes>
-	  		<Route exact path="/" element={<RootController />}/>
-	  	</Routes>
-	  </Router>
+		<Provider store={store}>
+	  	<Router>
+	  		<Routes>
+	  			<Route exact path="/" element={<RootController />}/>
+	  		</Routes>
+	  	</Router>
+	  </Provider>
 	);
 }
 

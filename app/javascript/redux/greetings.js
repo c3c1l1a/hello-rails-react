@@ -1,9 +1,10 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+const GET_ALL = 'messages/GET_ALL';
 
 
 const fetchAllMessages = createAsyncThunk(
-	'greetings/All',
-	async ('', thunkAPI) => {
+	GET_ALL,
+	async (all, thunkAPI) => {
 		const response = await fetch('api/v1/messages/index')
 		return response.data
 	}

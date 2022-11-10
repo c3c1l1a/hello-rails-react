@@ -1,8 +1,12 @@
 import React from 'react'
 
 function RootController() {
+	const generateMessage = () => {
+		console.log('clicked')
+	}
+
 	return (
-		<div>Click me</div>
+		<button onClick={()=> generateMessage()}>Generate message</button>
 	);
 }
 

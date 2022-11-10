@@ -8,7 +8,7 @@ export const fetchAllMessages = createAsyncThunk(
 	async (all, thunkAPI) => {
 		const response = await fetch('api/v1/messages/')
 		response.data = await response.json()
-		
+		console.log(response.data)
 		return response.data
 	}
 );

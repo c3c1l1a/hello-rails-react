@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Message < ApplicationRecord
   def self.random
     Message.order('RANDOM()').first

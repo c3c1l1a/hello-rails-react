@@ -1,15 +1,22 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllMessages } from '../redux/greetings';
 
 function RootController() {
 	const dispatch = useDispatch()
-	const generateMessage = () => {
-		dispatch(fetchAllMessages())
+	const message = useSelector(state => state.messages)
+
+	const generateMessage = async () => {
+		await dispatch(fetchAllMessages())
 	}
 
 	return (
-		<button onClick={()=> generateMessage()}>Generate message</button>
+		<div>
+			<button onClick={()=> generateMessage()}>Generate Quote</button>
+			<p>{message}</p>
+		</div>
+		
+
 	);
 }
 

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const GET_ALL = 'messages/GET_ALL';
+const GET_ALL = 'message/GET_ALL';
 const initialState = [];
 
 export const fetchAllMessages = createAsyncThunk(
@@ -8,18 +8,18 @@ export const fetchAllMessages = createAsyncThunk(
 	async (all, thunkAPI) => {
 		const response = await fetch('api/v1/messages/')
 		response.data = await response.json()
-		console.log(response.data)
+
 		return response.data
 	}
 );
 
 const messagesSlice = createSlice({
-	name: 'messages',
+	name: 'message',
 	initialState,
 	reducers: {},
 	extraReducers: {
 		[fetchAllMessages.fulfilled]: (state, action) => {
-			state.push(action.payload)
+			return action.payload.message
 		}
 	}
 });
